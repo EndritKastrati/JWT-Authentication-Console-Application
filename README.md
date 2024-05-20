@@ -1,4 +1,10 @@
- <h3 align="center">JWT Authentication</h3>
+<p align="center">
+  <a href="https://silasrodrigues.vercel.app">
+    <img src="logo1.png" alt="Logo" height="40">
+  </a>
+
+<h3 align="center">JWT Authentication</h3>
+</p>
 
 
 ## Përmbledhje
@@ -47,7 +53,7 @@ Ky projekt demonstron një aplikacion të thjeshtë klient-server duke përdorur
 ```sh
 git@github.com:EndritKastrati/JWT-Authentication-Console-Application.git
 ```
-<br><hr>
-[🔼 Back to top](#Portfolio)
+
+<a href="#top">Shko në fillim ↑</a>
 
 
