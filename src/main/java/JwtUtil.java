@@ -8,12 +8,12 @@ import java.util.Map;
 
 public class JwtUtil {
     private static final SecretKey SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-    private static final long EXPIRATION_TIME = 86400000; // 1 day
+    private static final long EXPIRATION_TIME = 86400000; // 86400000 milisekonda = 1 dit
 
     public static String generateToken(String username) {
         Map<String, Object> claims = new HashMap<>();
         String token = createToken(claims, username);
-        System.out.println("Generated Token: " + token); // Debugging statement
+        System.out.println("Tokeni i gjeneruar: " + token);
         return token;
     }
 

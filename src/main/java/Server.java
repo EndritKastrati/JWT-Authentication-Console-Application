@@ -5,7 +5,7 @@ import java.net.Socket;
 public class Server {
     public static void main(String[] args) {
         try (ServerSocket serverSocket = new ServerSocket(8080)) {
-            System.out.println("Server is listening on port 8080");
+            System.out.println("Serveri po pret në portin 8080");
             while (true) {
                 new ClientHandler(serverSocket.accept()).start();
             }
@@ -32,31 +32,31 @@ public class Server {
                 if ("endrit".equals(username) && "12345".equals(password)) {
                     String token = JwtUtil.generateToken(username);
                     out.println(token);
-                    System.out.println("Sent Token: " + token); // Debugging statement
+                    System.out.println("Dërgo tokenin: " + token);
                 } else {
-                    out.println("Invalid credentials");
-                    System.out.println("Invalid credentials provided."); // Debugging statement
+                    out.println("Kredenciale të gabuara");
+                    System.out.println("Janë dhënë kredenciale të gabuara.");
                 }
 
                 while (true) {
                     String request = in.readLine();
                     if (request != null) {
-                        System.out.println("Received Request: " + request); // Debugging statement
-                        if (request.equals("logout")) {
-                            System.out.println("Client logged out."); // Debugging statement
+                        System.out.println("Kërkesa e marrë: " + request);
+                        if (request.equals("qkyquni")) {
+                            System.out.println("Klienti është qkyqur me sukses.");
                             break;
-                        } else if (request.equals("request_data")) {
+                        } else if (request.equals("kërko_të_dhëna")) {
                             String token = in.readLine();
-                            System.out.println("Received Token: " + token); // Debugging statement
+                            System.out.println("Tokeni i marrë: " + token);
                             if (JwtUtil.validateToken(token, username)) {
-                                out.println("{ \"data\": \"This is protected data.\" }");
-                                System.out.println("Token valid, sent protected data."); // Debugging statement
+                                out.println(" \"data\": \"Këto janë të dhëna të mbrojtura.\"");
+                                System.out.println("Tokeni valid, dërgoni të dhëna të mbrojtura.");
                             } else {
-                                out.println("Invalid token");
-                                System.out.println("Invalid token received."); // Debugging statement
+                                out.println("Token invalid");
+                                System.out.println("U pranua token invalid.");
                             }
                         } else {
-                            System.out.println("Unknown command received: " + request); // Debugging statement
+                            System.out.println("U pranua komand invalide: " + request);
                         }
                     }
                 }

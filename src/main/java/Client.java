@@ -9,29 +9,30 @@ public class Client {
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in))
         ) {
-            System.out.println("Enter username: ");
+            System.out.println("Jepni usernamin: ");
             String username = stdIn.readLine();
-            System.out.println("Enter password: ");
+            System.out.println("Jepni passwordin: ");
             String password = stdIn.readLine();
 
             out.println(username);
             out.println(password);
 
             String response = in.readLine();
-            System.out.println("Server response: " + response); // Debugging statement
+            System.out.println("Përgjigja e serverit: " + response);
             String token = response;
 
             while (true) {
-                System.out.println("Enter command ('request_data' or 'logout'): ");
+                System.out.println("Jepni komandën 'kërko_të_dhëna' ose 'qkyquni': ");
                 String command = stdIn.readLine();
                 out.println(command);
 
-                if (command.equals("logout")) {
+                if (command.equals("qkyquni")) {
+                    System.out.println("Duke u qkyqur...");
                     break;
-                } else if (command.equals("request_data")) {
+                } else if (command.equals("kërko_të_dhëna")) {
                     out.println(token);
                     String serverResponse = in.readLine();
-                    System.out.println("Server response: " + serverResponse); // Debugging statement
+                    System.out.println("Përgjigja e serverit: " + serverResponse);
                 }
             }
         } catch (IOException e) {
