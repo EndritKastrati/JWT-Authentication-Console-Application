@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class JwtUtil {
     private static final SecretKey SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-    private static final long EXPIRATION_TIME = 86400000; // 86400000 milisekonda = 1 dit
+    private static final long EXPIRATION_TIME = 86400000; // 86400000 milisekonda = 1 dit / si session token
 
     public static String generateToken(String username) {
         Map<String, Object> claims = new HashMap<>();
